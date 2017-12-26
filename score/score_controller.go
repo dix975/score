@@ -2,7 +2,7 @@ package score
 
 import (
 	"net/http"
-	"dix975.com/www"
+	"github.com/dix975/www"
 )
 
 func HandleRoot(request http.ResponseWriter, response *http.Request) {

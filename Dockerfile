@@ -6,4 +6,4 @@ ADD ./schemas /schemas
 
 CMD ["/score"]
 
-EXPOSE 8080
+EXPOSE 8000

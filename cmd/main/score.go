@@ -1,14 +1,15 @@
 package main
 
 import (
-	"dix975.com/logger"
+	"github.com/dix975/database"
+	"github.com/dix975/logger"
 	"github.com/gorilla/mux"
-	"dix975.com/www"
-	"dix975.com/score/score"
+	"github.com/dix975/www"
 	"time"
 	"net/http"
 	"log"
-	"dix975.com/score/team"
+	"github.com/dix975/score/score"
+	"github.com/dix975/score/team"
 )
 
 func main(){
@@ -16,6 +17,14 @@ func main(){
 	logger.Init()
 
 	logger.Info.Println("Booting")
+
+
+	logger.Info.Println("Initiating Mongo Connection")
+
+	db.NewDB(
+		db.MongoServerConfig{
+			AuthDatabaseName: "score",
+		})
 
 	router := mux.NewRouter()
 
@@ -30,5 +39,6 @@ func main(){
 		ReadTimeout:  15 * time.Second,
 	}
 
+	logger.Info.Println("Server Listning")
 	log.Fatal(server.ListenAndServe())
 }

@@ -3,13 +3,13 @@ package team
 import (
 	"net/http"
 	"encoding/json"
-	"dix975.com/www"
-	"dix975.com/logger"
 	"github.com/xeipuuv/gojsonschema"
 	"io/ioutil"
 	"fmt"
 	"os"
-	"dix975.com/score/validation"
+	"github.com/dix975/score/validation"
+	"github.com/dix975/www"
+	"github.com/dix975/logger"
 )
 
 var teamSchema gojsonschema.Schema
@@ -25,7 +25,6 @@ func init() {
 	}
 	teamSchema = *schema
 }
-
 
 type Team struct {
 	Name string `json:"name"`
