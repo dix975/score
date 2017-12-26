@@ -19,13 +19,15 @@ func main(){
 	logger.Info.Println("Booting")
 
 
-	logger.Info.Println("Initiating Mongo Connection")
+	logger.Info.Println("Initiating Mongo Connection with error handling")
 
-	db.NewDB(
+	_, err := db.NewDB(
 		db.MongoServerConfig{
 			AuthDatabaseName: "score",
+			URL:"mongodb://mongo:27017",
 		})
 
+	if err != nil { panic(err)}
 	router := mux.NewRouter()
 
 	router.Methods("GET").Path("/").Handler(www.Handle{score.HandleRoot})
