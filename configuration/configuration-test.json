@@ -1,0 +1,7 @@
+{
+  "schemaFolder": "test/fixtures/schemas",
+  "mongodb": {
+    "databaseName": "score",
+    "servers": "localhost:27017"
+  }
+}

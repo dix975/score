@@ -1,13 +1,21 @@
 version: '3'
 services:
   api:
-    build: .
+    image: 'billettc/score'
     ports:
       - "8000:8000"
+    depends_on:
+      - mongo
     links:
       - mongo
   mongo:
     image: 'mongo:latest'
     restart: 'always'
+    environment:
+      - AUTH=no
     ports:
       - '27017:27017'
+    volumes:
+      - './data:/data/db'
+volumes:
+  mongo:

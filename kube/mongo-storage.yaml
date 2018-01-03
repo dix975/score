@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mongo-storage
+spec:
+  containers:
+  - image: k8s.gcr.io/test-webserver
+    name: mongo-storage-container
+    volumeMounts:
+    - mountPath: /data/db
+      name: mongo-storage
+  volumes:
+  - name: mongo-storage
+    hostPath:
+      # directory location on host
+      path: /data/db
+      # this field is optional
+      type: Directory

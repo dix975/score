@@ -1,4 +1,5 @@
 FROM scratch
+#FROM alpine
 
 ADD ./build/score /
 # CMD ["mkdir ./schemas"]

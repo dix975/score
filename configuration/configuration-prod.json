@@ -1,0 +1,7 @@
+{
+  "schemaFolder": "schemas",
+  "mongodb": {
+    "databaseName": "score",
+    "servers": "mongo:27017"
+  }
+}
